@@ -1,3 +1,11 @@
+# Created by https://www.gitignore.io/api/rails
+
+### Rails ###
+/.c9
+/.hg
+info.txt
+temp.txt
+helper.txt
 *.rbc
 capybara-*.html
 .rspec
@@ -42,3 +50,59 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# End of https://www.gitignore.io/api/rails
+
+# Created by https://www.gitignore.io/api/rails
+
+### Rails ###
+/AdminFarm/.c9
+/AdminFarm/.hg
+/AdminFarm/info.txt
+/AdminFarm/*.rbc
+/AdminFarm/capybara-*.html
+/AdminFarm/.rspec
+/AdminFarm/log
+/AdminFarm/tmp
+/AdminFarm/db/*.sqlite3
+/AdminFarm/db/*.sqlite3-journal
+/AdminFarm/public/system
+/AdminFarm/coverage/
+/AdminFarm/spec/tmp
+/AdminFarm/*.orig
+/AdminFarm/rerun.txt
+/AdminFarm/pickle-email-*.html
+
+# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
+/AdminFarm/config/initializers/secret_token.rb
+
+# Only include if you have production secrets in this file, which is no longer a Rails default
+# config/secrets.yml
+
+# dotenv
+# TODO Comment out this rule if environment variables can be committed
+/AdminFarm/.env
+
+## Environment normalization:
+/AdminFarm/.bundle
+/AdminFarm/vendor/bundle
+
+# these should all be checked in to normalize the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+/AdminFarm/.rvmrc
+
+# if using bower-rails ignore default bower_components path bower.json files
+/AdminFarm//vendor/assets/bower_components
+/AdminFarm/*.bowerrc
+/AdminFarm/bower.json
+
+# Ignore pow environment settings
+/AdminFarm/.powenv
+
+# Ignore Byebug command history file.
+/AdminFarm/.byebug_history
+
+
+# End of https://www.gitignore.io/api/rails
