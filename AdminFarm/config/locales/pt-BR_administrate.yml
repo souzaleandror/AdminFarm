@@ -1,0 +1,58 @@
+# encoding: UTF-8
+---
+pt-BR:
+  administrate:
+    exportation:
+      dati: "Exportacao de dados"
+      csv: "CSV"
+      json: "JSON"
+      xml: "XML"
+      excel: "EXCEL"
+      pdf: "PDF"
+      text: "TEXT"
+      seed: "SEED"
+      sql: "SQL"
+    filter:
+      filters: "Filtros"
+      obsolete: "Obsoleto"
+      no_obsolete: "Não Obsoleto"
+      no_filter: "Nenhum filtro"
+      animals_deaths: "Animais Mortos"
+      animals_sales: "Animais Vendidos"
+      animals_deaths_sales: "Animais Mortos/Vendidos"
+      animals_normal: "Animais Normais"
+      actions: "Ações"
+    parents:
+      Farm Lot: "Lote Fazenda"
+    index:
+      count_record: "Quantidade de registro"
+    actions:
+      new: Novo
+      confirm: Você tem certeza?
+      destroy: Deletar
+      edit: Editar
+      edit_resource: Editar %{name}
+      show_resource: Visualizar %{name}
+      new_resource: Criar %{resource}
+      show: "Visualizar"
+      back: Voltar
+      list: Lista
+    controller:
+      create:
+        success: "%{resource} foi criado com sucesso."
+      destroy:
+        success: "%{resource} foi deletado com sucesso."
+      update:
+        success: "%{resource} foi atualizado com sucesso."
+    fields:
+      has_many:
+        more: "Exibindo %{count} de %{total_count}"
+        none: Nenhum
+      has_one:
+        not_supported: Relações um para muitos nos formulários não são suportadas.
+    form:
+      error: error
+      errors: "%{pluralized_errors} proibido esse %{resource_name} de serem salvados:"
+    search:
+      clear: Limpar pesquisa
+      label: Pesquisa %{resource}

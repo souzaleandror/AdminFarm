@@ -1,0 +1,198 @@
+.b {
+  border: 2px solid red !important;
+}
+
+.f {
+  float: left !important;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p,
+ol,
+ul,
+td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  /*
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+  */
+}
+
+div {
+  &.field,
+  &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors label {
+  color: red;
+}
+
+.field_with_errors {
+  input,
+  select {
+    border-color: coral;
+  }
+}
+
+#error_explanation {
+
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 20px;
+    list-style: square;
+  }
+}
+
+.bt_red,
+.delete {
+  background-color: red !important;
+}
+
+.bt_green,
+.new {
+  background-color: #16ab39 !important;
+}
+
+.bt_blue,
+.normal {
+  background-color: #1678c2 !important;
+}
+
+.bt_yellow,
+.edit {
+  background-color: #eaae00 !important;
+}
+
+.bt_orange,
+.no_filter,
+.update {
+  background-color: #f26202 !important;
+}
+
+.bt_teal,
+.filter {
+  background-color: #009c95 !important;
+}
+
+.bt_violet,
+.show {
+  background-color: #5829bb !important;
+}
+
+.bt_purple {
+  background-color: #9627ba !important;
+}
+
+.bt_brown {
+  background-color: #975b33 !important;
+}
+
+.bt_grey,
+.exportation {
+  background-color: #838383 !important;
+}
+
+.bt_black {
+  background-color: #27292a !important;
+}
+
+/*
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+*/
+
+a[disabled=disabled],
+a:disabled,
+.disabled,
+.button_true {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.font14 {
+  font-size: 1.1em !important;
+  font-weight: bold;
+  font-family: inherit;
+}

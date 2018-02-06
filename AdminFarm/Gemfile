@@ -65,9 +65,9 @@ gem 'bcrypt-ruby'
 gem 'sprockets'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
-gem "administrate"
+# gem "administrate"
 # gem "administrate", :git => "git@github.com:souzaleandror/administrate.git"
-# gem "administrate", :git => "https://github.com/souzaleandror/administrate.git"
+gem "administrate", :git => "https://github.com/souzaleandror/administrate.git"
 
 # Plugin that adds search capabilities to belongs_to associations for Administrate
 gem 'administrate-field-belongs_to_search'

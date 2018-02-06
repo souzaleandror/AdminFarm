@@ -1,0 +1,119 @@
+pt-BR:
+  common: &common
+    id: "Código"
+    name: "Nome"
+    description: "Descrição"
+    obsolete: "Obsoleto"
+    created_at: "Criado em" 
+    updated_at: "Atualizado em"
+  helpers:
+    label:
+      gender:
+        <<: *common
+      origin:
+        <<: *common
+      destiny:
+        <<: *common
+      farm:
+        <<: *common
+        address: "Endereço"
+        hectare_quantity: "Quantidade de Hectares"
+      farm_lot:
+        <<: *common
+        farm: "Fazenda"
+        farm_id: "Fazenda"
+      animal_category:
+        <<: *common
+      vaccine:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+      medicine:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+      breed_animal:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+      animal_stage:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+        gender: "Sexo"
+        gender_id: "Sexo"
+        min_month: "Minimo Mes"
+        max_month: "Maximo Mes"
+      animal_state:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+        gender: "Sexo"
+        gender_id: "Sexo"
+      animal:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+        breed_animal: "Raça"
+        breed_animal_id: "Raça"
+        gender: "Sexo"
+        gender_id: "Sexo"
+        animal_stage: "Estagio Animal"
+        animal_stage_id: "Estagio Animal"
+        animal_state: "Estado Animal"
+        animal_state_id: "Estado Animal"
+        origin: "Origem"
+        origin_id: "Origem"
+        farm: "Fazenda"
+        farm_id: "Fazenda"
+        number_earring: "Numero Brinco"
+        date_register: "Data Cadastro"
+        birth_date: "Data Nascimento"
+        earring_mother_number: "Numero Brinco Mae"
+        initial_weigh: "Pesagem Inicial"
+        description: "Descrição"
+        obsolete: "Obsoleto"
+      weighing:
+        animal: "Animal" 
+        animal_id: "Animal" 
+        animal_stage: "Estagio animal" 
+        animal_stage_id: "Estagio animal" 
+        weigh_date: "Data da Pesagem"
+        weight: "Peso"
+        gain_weight: "Ganho Peso" 
+        animal_state: "Estado Animal" 
+        animal_state_id: "Estado Animal" 
+        pregnant: "Prenha" 
+        sick: "Doente" 
+        description: "Descrição" 
+        observation: "Observaçao"
+      vaccination:
+        animal: "Animal" 
+        vaccine: "Vacina" 
+        date_vaccine: "Data Vacina"
+        observation: "Observaçao"
+      application_medicine:
+        animal: "Animal" 
+        medicine: "Remedio" 
+        date_medicine: "Data da aplicaçao"
+        observation: "Observaçao"
+      death_type:
+        <<: *common
+      animal_death:
+        animal: "Animal" 
+        death_type: "Tipo de Morte" 
+        destiny: "Destino" 
+        date_death: "Data Morte" 
+        observation: "Observacao" 
+        final_weigh: "Peso Final"
+      sale_type:
+        <<: *common
+      animal_sale:
+        animal: "Animal" 
+        sale_type: "Tipo de Venda" 
+        destiny: "Destino" 
+        date_sale: "Data Venda" 
+        observation: "Observaçao" 
+        purchase_value: "Valor Compra"
+        sales_value: "Valor Venda" 
+        final_weigh: "Pesagem Final"

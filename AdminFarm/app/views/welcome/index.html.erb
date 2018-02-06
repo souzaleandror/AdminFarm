@@ -1,4 +1,15 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:130px">
+	<div class="modal-dialog">
+		<div class="loginmodal-container">
+			<h1>Login no servidor</h1><br>
+			<form>
+				<input type="text" name="user" placeholder="Usuário">
+				<input type="password" name="pass" placeholder="Senha">
+				<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+			</form>
+		
+			<div class="login-help">
+				<a href="#">Cadastrar</a> - <a href="#">Esqueci minha senha</a>
+			</div>
+		</div>
+	</div>

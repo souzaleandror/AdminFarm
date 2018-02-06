@@ -1,0 +1,139 @@
+<%#
+# Collection
+
+This partial is used on the `index` and `show` pages
+to display a collection of resources in an HTML table.
+
+## Local variables:
+
+- `collection_presenter`:
+  An instance of [Administrate::Page::Collection][1].
+  The table presenter uses `ResourceDashboard::COLLECTION_ATTRIBUTES` to determine
+  the columns displayed in the table
+- `resources`:
+  An ActiveModel::Relation collection of resources to be displayed in the table.
+  By default, the number of resources is limited by pagination
+  or by a hard limit to prevent excessive page load times
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Collection
+%>
+
+<% if defined? collection_presenter.filter_names != nil %>
+  <%= t("administrate.filter.filters") %>:
+  <% collection_presenter.filter_names.each do |key, value| %>
+    <%= link_to(
+            t("administrate.filter.#{value}"),
+            "?search=#{key}",
+            class: "button bt_teal",
+          ) %>
+  <% end %>
+  <%= link_to(
+        t("administrate.filter.no_filter"),
+        "?search=",
+        class: "button bt_orange",
+    ) %> 
+<% end %>
+
+<% if defined? collection_presenter.index_actions != nil %>
+  <br><br>
+  <%= t("administrate.filter.actions") %>:
+  <% collection_presenter.index_actions.each do |key, value| %>
+    <%= link_to(
+      "#{t("administrate.actions.new")} #{t(value['model'])}",
+      [:new, namespace, value['link']],
+      class: "button new",
+      ) %>  
+  <% end %>
+  <br><br>
+<% end %>
+
+<table aria-labelledby="<%= table_title %>">
+  <thead>
+    <tr>
+      <% collection_presenter.attribute_types.each do |attr_name, attr_type| %>
+      <th class="cell-label cell-label--<%= attr_type.html_class %> cell-label--<%= collection_presenter.ordered_html_class(attr_name) %>"
+        scope="col" role="columnheader" aria-sort="<%= sort_order(collection_presenter.ordered_html_class(attr_name)) %>">
+        <%= link_to(sanitized_order_params.merge(collection_presenter.order_params_for(attr_name))) do %>
+          <%= t("helpers.label.#{collection_presenter.resource_name}.#{attr_name}", default: attr_name.to_s,).titleize %>
+            <% if collection_presenter.ordered_by?(attr_name) %>
+              <span class="cell-label__sort-indicator cell-label__sort-indicator--<%= collection_presenter.ordered_html_class(attr_name) %>">
+                <svg aria-hidden="true">
+                  <use xlink:href="#icon-up-caret" />
+                </svg>
+              </span>
+            <% end %>
+          <% end %>
+        </th>
+      <% end %>
+      <% [valid_action?(:show, collection_presenter.resource_name),
+          valid_action?(:edit, collection_presenter.resource_name),
+          valid_action?(:destroy, collection_presenter.resource_name)].count(true).times do %>
+        <th scope="col"></th>
+      <% end %>
+      <% if defined? collection_presenter.index_actions_linea != nil %> 
+        <th>
+          <%= t("administrate.filter.actions") %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% resources.each do |resource| %>
+      <tr class="js-table-row"
+          tabindex="0"
+          <% if valid_action? :show, collection_presenter.resource_name %>
+            <%= %(role=link data-url=#{polymorphic_path([namespace, resource])}) %>
+          <% end %>
+          >
+        <% collection_presenter.attributes_for(resource).each do |attribute| %>
+          <td class="cell-data cell-data--<%= attribute.html_class %>">
+            <a href="<%= polymorphic_path([namespace, resource]) -%>"
+               class="action-show">
+              <%= render_field attribute if attribute.html_class != 'boolean'  %>
+              <%#= t("#{attribute.html_class}.#{attribute}_", default: attribute) if attribute.html_class == 'boolean' %>
+              <%= t_get_boolean(attribute.to_s) if attribute.html_class == 'boolean' %>
+            </a>
+          </td>
+        <% end %>
+
+        <% if valid_action? :show, collection_presenter.resource_name %>
+          <td><%= link_to(
+            t("administrate.actions.show"),
+            [namespace, resource],
+            class: "button show",
+          ) %></td>
+        <% end %>
+
+        <% if valid_action? :edit, collection_presenter.resource_name %>
+          <td><%= link_to(
+            t("administrate.actions.edit"),
+            [:edit, namespace, resource],
+            class: "button edit",
+          ) %></td>
+        <% end %>
+
+        <% if valid_action? :destroy, collection_presenter.resource_name %>
+          <td><%= link_to(
+            t("administrate.actions.destroy"),
+            [namespace, resource],
+            class: "button delete",
+            method: :delete,
+            data: { confirm: t("administrate.actions.confirm") }
+          ) %></td>
+        <% end %>
+        <% if defined? collection_presenter.index_actions_linea != nil %> 
+          <% collection_presenter.index_actions_linea.each do |key, value| %>
+            <td>
+                <%= link_to(
+                  "#{t("administrate.actions.new")} #{t(value['model'])}",
+                  {:controller => 'admin/'+ value['link'],:action => "new", value["parameter_name"] => resource.id},
+                  {class: "button bt_green button_#{resource.obsolete}"},
+                ) if valid_action? :new %>  
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

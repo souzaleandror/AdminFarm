@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/souzaleandror/administrate.git
+  revision: 03234e95e8e66469501bad5f01eee86c3c3855a5
+  specs:
+    administrate (0.8.1)
+      actionpack (>= 4.2, < 5.2)
+      actionview (>= 4.2, < 5.2)
+      activerecord (>= 4.2, < 5.2)
+      autoprefixer-rails (>= 6.0)
+      datetime_picker_rails (~> 0.0.7)
+      jquery-rails (>= 4.0)
+      kaminari (>= 1.0)
+      momentjs-rails (~> 2.8)
+      sass-rails (~> 5.0)
+      selectize-rails (~> 0.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,17 +56,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    administrate (0.8.1)
-      actionpack (>= 4.2, < 5.2)
-      actionview (>= 4.2, < 5.2)
-      activerecord (>= 4.2, < 5.2)
-      autoprefixer-rails (>= 6.0)
-      datetime_picker_rails (~> 0.0.7)
-      jquery-rails (>= 4.0)
-      kaminari (>= 1.0)
-      momentjs-rails (~> 2.8)
-      sass-rails (~> 5.0)
-      selectize-rails (~> 0.6)
     administrate-field-belongs_to_search (0.4.0)
       administrate (>= 0.3, < 1.0)
       rails (>= 4.2, < 5.2)
@@ -269,7 +274,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  administrate
+  administrate!
   administrate-field-belongs_to_search
   autoprefixer-rails
   bcrypt-ruby
