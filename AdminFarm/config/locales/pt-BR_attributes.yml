@@ -3,6 +3,14 @@ pt-BR:
     name: "Nome"
   activerecord:
     attributes:
+      contact:
+        name: "Nome"
+        email: "Email"
+        phone: "Telefone"
+        message: "Mensagem"
+        info: "Informacao"
+        obs: "Observacao"
+        answered: "Respondido"
       origin:
         <<: *common
       gender:

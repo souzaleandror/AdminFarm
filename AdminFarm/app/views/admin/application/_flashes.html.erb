@@ -16,7 +16,7 @@ This partial renders flash messages on every page.
     <% flash.each do |key, value| -%>
       <div class="flash flash-<%= key %>">
         <%= value if key != "notice"  %>
-        <%= t(value.split.first.downcase) %><%= value.remove(value.split.first) if key == "notice" %>
+        <%= t(value.split.first.downcase) if key == "notice" %><%= value.remove(value.split.first) if key == "notice" %>
       </div>
     <% end -%>
   </div>

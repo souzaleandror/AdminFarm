@@ -1,5 +1,11 @@
-<h1>New Contact</h1>
-
-<%= render 'form', contact: @contact %>
-
-<%= link_to 'Back', contacts_path %>
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:130px">
+	<div class="modal-dialog">
+		<div class="loginmodal-container">
+      <h1><%= t(".title") %></h1>
+      
+      <%= render 'form', contact: @contact %>
+      
+      <%= link_to t('.nack'), contacts_path %>
+		</div>
+	</div>
+</div>

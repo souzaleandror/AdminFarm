@@ -27,8 +27,15 @@ pt-BR:
   saletype: "Tipo Venda"
   animal sale: "Animal Venda"
   animalsale: "Animal Venda"
+  user: "Usuàrio"
+  contact: "Contato"
   activerecord:
+    successful:
+      messages:
+        created: "%{model} foi criado com sucesso."
+        updated: "%{model} foi atualizado com sucesso."
     models:
+      contact: "Contato"
       gender: "Sexo"
       origin: "Origem"
       destiny: "Destino"
