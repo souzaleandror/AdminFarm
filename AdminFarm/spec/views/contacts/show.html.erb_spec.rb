@@ -7,6 +7,8 @@ RSpec.describe "contacts/show", type: :view do
       :email => "Email",
       :phone => "Phone",
       :message => "MyText",
+      :accept => false,
+      :newsletter => false,
       :info => "Info",
       :obs => "Obs",
       :answered => false
@@ -19,6 +21,8 @@ RSpec.describe "contacts/show", type: :view do
     expect(rendered).to match(/Email/)
     expect(rendered).to match(/Phone/)
     expect(rendered).to match(/MyText/)
+    expect(rendered).to match(/false/)
+    expect(rendered).to match(/false/)
     expect(rendered).to match(/Info/)
     expect(rendered).to match(/Obs/)
     expect(rendered).to match(/false/)

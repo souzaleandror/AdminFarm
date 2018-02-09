@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+C1 = Company.create(name: 'Admin Farm', slogan: 'Gerencie Sua Fazenda', phone: '(11)1122-4488', fax: '(11)1122-4488', cel: '(11)9-9999-9999', email: 'info@adminfarm.com.br', contact_email: 'contact@adminfarm.com.br')
+puts 'CREATED Company'
 G1 = Gender.create(name: 'Macho', description: 'Animais Machos', obsolete: false)
 G2 = Gender.create(name: 'Fêmea', description: 'Animais Fêmeas', obsolete: false)
 G3 = Gender.create(name: 'Outros', description: 'Outros', obsolete: true)

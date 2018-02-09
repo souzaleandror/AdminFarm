@@ -208,7 +208,7 @@ label.label_form::first-letter
   //font-size: x-large;
 }
 
-label.label_form::after {
+label.label_form:after {
   content: ":";
 }  
 

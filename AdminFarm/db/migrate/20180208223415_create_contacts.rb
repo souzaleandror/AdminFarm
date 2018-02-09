@@ -5,6 +5,8 @@ class CreateContacts < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :phone
       t.text :message
+      t.boolean :accept
+      t.boolean :newsletter
       t.string :info
       t.string :obs
       t.boolean :answered

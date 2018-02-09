@@ -4,15 +4,16 @@ pt-BR:
     new:
       title: "Contato"
       back: "Voltar"
-      nack: "Voltar"
+      send: "Enviar"
     form:
-      name: Nome
-      email: Email
-      phone: Telefone
-      message: Mensagem
-      info: Informacao
-      obs: Observacao
-      answered: Respondido
+      name: "Nome"
+      email: "Email"
+      phone: "Telefone"
+      message: "Mensagem"
+      info: "Informação"
+      obs: "Observação"
+      answered: "Respondido"
+      send: "Enviar"
   menu:
     home: "Home"
     signin: "Login"

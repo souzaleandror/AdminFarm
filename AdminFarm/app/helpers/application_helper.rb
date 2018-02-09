@@ -2,9 +2,9 @@ module ApplicationHelper
   
   def show_table1(action, page, table)
     if (action = 'show' && page == Gender && table == AnimalStage)
-        'animal_category_id,name,min_month,max_month,obsolete'
+        'animal_category_id,gender_id,name,min_month,max_month,obsolete'
     elsif (action = 'show' && page == Gender && table == AnimalState)
-        'animal_category_id,name,weigh_min,weigh_max,obsolete'
+        'animal_category_id,gender_id,name,weigh_min,weigh_max,obsolete'
     elsif (action = 'show' && page == Gender && table == Animal)
         'animal_category_id,breed_animal_id,animal_stage_id,animal_state_id,origin_id,farm_id,number_earring'
     elsif (action = 'show' && page == Animal && table == AnimalDeath)
@@ -23,11 +23,11 @@ module ApplicationHelper
   def attribute_name(model, field_name)
     
     if model == AnimalStage
-      if (['animal_category_id'].include? field_name) 
+      if (['animal_category_id','gender_id'].include? field_name) 
         :name
       end
     elsif model == AnimalState
-      if (['animal_category_id'].include? field_name) 
+      if (['animal_category_id','gender_id'].include? field_name) 
         :name
       end
     elsif model == Animal

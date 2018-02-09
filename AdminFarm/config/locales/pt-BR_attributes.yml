@@ -1,15 +1,38 @@
 pt-BR:
   common: &common
+    id: "Código"
     name: "Nome"
+    description: "Descrição"
+    obsolete: "Obsoleto"
+    created_at: "Criado em" 
+    updated_at: "Atualizado em"
   activerecord:
+    successful:
+      messages:
+        created: "%{model} foi criado com sucesso."
+        updated: "%{model} foi atualizado com sucesso."
     attributes:
+      company:
+        <<: *common
+        slogan: "Slogan"
+        phone: "Telefone"
+        cel: "Celular"
+        info: "Informação"
+        email: "Email"
+        contact_email: "Email de contato"
+        contact email: "Email de contato"
+        mission: "Missão"
+        vision: "Visão"
+        valuables: "Valores"
       contact:
-        name: "Nome"
+        <<: *common
         email: "Email"
         phone: "Telefone"
         message: "Mensagem"
-        info: "Informacao"
-        obs: "Observacao"
+        accept: "Termos de uso"
+        newsletter: "Newsletter"
+        info: "Informação"
+        obs: "Observação"
         answered: "Respondido"
       origin:
         <<: *common
@@ -65,3 +88,7 @@ pt-BR:
         initial_weigh: "Pesagem Inicial"
         description: "Descrição"
         obsolete: "Obsoleto"
+      animal_stage:
+        animal_category: "Categoria Animal" 
+        animal_category_id: "Categoria Animal" 
+        name: "Nome"

@@ -28,13 +28,11 @@ pt-BR:
   animal sale: "Animal Venda"
   animalsale: "Animal Venda"
   user: "Usuàrio"
+  company: "Companhia"
   contact: "Contato"
   activerecord:
-    successful:
-      messages:
-        created: "%{model} foi criado com sucesso."
-        updated: "%{model} foi atualizado com sucesso."
     models:
+      company: "Companhia"
       contact: "Contato"
       gender: "Sexo"
       origin: "Origem"

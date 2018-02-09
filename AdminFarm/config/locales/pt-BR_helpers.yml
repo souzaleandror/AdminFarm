@@ -8,6 +8,28 @@ pt-BR:
     updated_at: "Atualizado em"
   helpers:
     label:
+      company:
+        <<: *common
+        slogan: "Slogan"
+        phone: "Telefone"
+        cel: "Celular"
+        info: "Informação"
+        email: "Email"
+        contact_email: "Email de contato"
+        contact email: "Email de contato"
+        mission: "Missão"
+        vision: "Visão"
+        valuables: "Valores"
+      contact:
+        <<: *common
+        email: "Email"
+        phone: "Telefone"
+        message: "Mensagem"
+        accept: "Termos de uso"
+        newsletter: "Newsletter"
+        info: "Informação"
+        obs: "Observação"
+        answered: "Respondido"
       gender:
         <<: *common
       origin:
@@ -44,10 +66,28 @@ pt-BR:
         gender_id: "Sexo"
         min_month: "Minimo Mes"
         max_month: "Maximo Mes"
+      animalstage:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+        gender: "Sexo"
+        gender_id: "Sexo"
+        min_month: "Minimo Mes"
+        max_month: "Maximo Mes"
       animal_state:
         <<: *common
         animal_category: "Categoria Animal"
         animal_category_id: "Categoria Animal"
+        weigh_min: "Peso Minimo"
+        weigh_max: "Peso Maximo"
+        gender: "Sexo"
+        gender_id: "Sexo"
+      animalstate:
+        <<: *common
+        animal_category: "Categoria Animal"
+        animal_category_id: "Categoria Animal"
+        weigh_min: "Peso Minimo"
+        weigh_max: "Peso Maximo"
         gender: "Sexo"
         gender_id: "Sexo"
       animal:

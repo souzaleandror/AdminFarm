@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+
   resources :contacts
   # devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
-  root 'welcome#index'
+  #root 'welcome#index'
+  devise_scope :user do
+    root to: "users/sessions#new"
+  end
   
   namespace :admin do
     #get '/' => 'welcome#index'
+    resources :contacts
     resources :animal_sales
     resources :sale_types
     resources :animal_deaths
@@ -26,5 +31,6 @@ Rails.application.routes.draw do
     resources :destinies
     resources :origins
     resources :genders
+      resources :companies
   end
 end

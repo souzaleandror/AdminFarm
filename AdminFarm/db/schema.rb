@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206232154) do
+ActiveRecord::Schema.define(version: 20180208223415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,11 +132,31 @@ ActiveRecord::Schema.define(version: 20180206232154) do
     t.index ["name"], name: "index_breed_animals_on_name", unique: true
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "slogan"
+    t.string "phone"
+    t.string "fax"
+    t.string "cel"
+    t.string "description"
+    t.string "info"
+    t.string "email"
+    t.string "contact_email"
+    t.text "mission"
+    t.text "vision"
+    t.text "valuables"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_companies_on_name", unique: true
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "phone"
     t.text "message"
+    t.boolean "accept"
+    t.boolean "newsletter"
     t.string "info"
     t.string "obs"
     t.boolean "answered"

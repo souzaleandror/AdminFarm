@@ -7,6 +7,8 @@ RSpec.describe "contacts/new", type: :view do
       :email => "MyString",
       :phone => "MyString",
       :message => "MyText",
+      :accept => false,
+      :newsletter => false,
       :info => "MyString",
       :obs => "MyString",
       :answered => false
@@ -25,6 +27,10 @@ RSpec.describe "contacts/new", type: :view do
       assert_select "input[name=?]", "contact[phone]"
 
       assert_select "textarea[name=?]", "contact[message]"
+
+      assert_select "input[name=?]", "contact[accept]"
+
+      assert_select "input[name=?]", "contact[newsletter]"
 
       assert_select "input[name=?]", "contact[info]"
 

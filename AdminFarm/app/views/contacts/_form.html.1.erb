@@ -32,6 +32,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :accept %>
+    <%= form.check_box :accept, id: :contact_accept %>
+  </div>
+
+  <div class="field">
+    <%= form.label :newsletter %>
+    <%= form.check_box :newsletter, id: :contact_newsletter %>
+  </div>
+
+  <div class="field">
     <%= form.label :info %>
     <%= form.text_field :info, id: :contact_info %>
   </div>

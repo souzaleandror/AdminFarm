@@ -10,7 +10,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :phone %>
+    <%= form.label :phone, class: 'label_form' %>
     <%= form.text_field :phone, id: :contact_phone, autocomplete: "phone", placeholder: t(".phone")  %>
   </div>
 
@@ -18,8 +18,18 @@
     <%= form.label :message, class: 'label_form required' %>
     <%= form.text_area :message, id: :contact_message, autocomplete: "message", placeholder: t(".message")  %>
   </div>
+  
+  <div class="field">
+    <%= form.check_box :accept, id: :contact_accept, class: "f" %>
+    <%= form.label :accept %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :newsletter, id: :contact_newsletter, class: "f" %>
+    <%= form.label :newsletter %>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t(".send") %>
   </div>
 <% end %>
