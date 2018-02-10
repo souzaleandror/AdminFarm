@@ -1,5 +1,4 @@
 class DeathType < ApplicationRecord
-  
   has_many :animal_deaths
   
   #validates :name, :description, :obsolete, presence: true

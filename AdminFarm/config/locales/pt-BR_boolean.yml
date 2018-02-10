@@ -1,0 +1,5 @@
+--- 
+pt-BR:
+  boolean:
+    true_: "Sim"
+    false_: "Não"

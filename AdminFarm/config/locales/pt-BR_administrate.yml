@@ -27,16 +27,19 @@ pt-BR:
     index:
       count_record: "Quantidade de registro"
     actions:
-      new: Novo
-      confirm: Você tem certeza?
-      destroy: Deletar
-      edit: Editar
-      edit_resource: Editar %{name}
-      show_resource: Visualizar %{name}
-      new_resource: Criar %{resource}
+      new: "Novo"
+      confirm: "Você tem certeza?"
+      destroy: "Deletar"
+      edit: "Editar"
+      edit_resource: "Editar %{name}"
+      show_resource: "Visualizar %{name}"
+      new_resource: "Criar %{resource}"
       show: "Visualizar"
-      back: Voltar
-      list: Lista
+      back: "Voltar"
+      list: "Lista"
+      table:
+        new: "Novo"
+        actions: "Ações"
     controller:
       create:
         success: "%{resource} foi criado com sucesso."
@@ -47,12 +50,12 @@ pt-BR:
     fields:
       has_many:
         more: "Exibindo %{count} de %{total_count}"
-        none: Nenhum
+        none: "Nenhum"
       has_one:
-        not_supported: Relações um para muitos nos formulários não são suportadas.
+        not_supported: "Relações um para muitos nos formulários não são suportadas."
     form:
-      error: error
+      error: "error"
       errors: "%{pluralized_errors} proibido esse %{resource_name} de serem salvados:"
     search:
-      clear: Limpar pesquisa
-      label: Pesquisa %{resource}
+      clear: "Limpar pesquisa"
+      label: "Pesquisa %{resource}"

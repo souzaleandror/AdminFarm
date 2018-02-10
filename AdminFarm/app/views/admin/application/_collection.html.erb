@@ -21,28 +21,16 @@ to display a collection of resources in an HTML table.
 <% if defined? collection_presenter.filter_names != nil %>
   <%= t("administrate.filter.filters") %>:
   <% collection_presenter.filter_names.each do |key, value| %>
-    <%= link_to(
-            t("administrate.filter.#{value}"),
-            "?search=#{key}",
-            class: "button bt_teal",
-          ) %>
+    <%= link_to( t("administrate.filter.#{value}"), "?search=#{key}", class: "button bt_teal", ) %>
   <% end %>
-  <%= link_to(
-        t("administrate.filter.no_filter"),
-        "?search=",
-        class: "button bt_orange",
-    ) %> 
+  <%= link_to( t("administrate.filter.no_filter"), "?search=", class: "button bt_orange") %> 
 <% end %>
 
 <% if defined? collection_presenter.index_actions != nil %>
   <br><br>
   <%= t("administrate.filter.actions") %>:
   <% collection_presenter.index_actions.each do |key, value| %>
-    <%= link_to(
-      "#{t("administrate.actions.new")} #{t(value['model'])}",
-      [:new, namespace, value['link']],
-      class: "button new",
-      ) %>  
+    <%= link_to( "#{t("administrate.actions.new")} #{t(value['model'])}", [:new, namespace, value['link']], class: "button new") %>  
   <% end %>
   <br><br>
 <% end %>
@@ -52,7 +40,7 @@ to display a collection of resources in an HTML table.
     <tr>
       <% collection_presenter.attribute_types.each do |attr_name, attr_type| %>
       <th class="cell-label cell-label--<%= attr_type.html_class %> cell-label--<%= collection_presenter.ordered_html_class(attr_name) %>"
-        scope="col" role="columnheader" aria-sort="<%= sort_order(collection_presenter.ordered_html_class(attr_name)) %>">
+          scope="col" role="columnheader" aria-sort="<%= sort_order(collection_presenter.ordered_html_class(attr_name)) %>">
         <%= link_to(sanitized_order_params.merge(collection_presenter.order_params_for(attr_name))) do %>
           <%= t("helpers.label.#{collection_presenter.resource_name}.#{attr_name}", default: attr_name.to_s,).titleize %>
             <% if collection_presenter.ordered_by?(attr_name) %>
@@ -80,10 +68,7 @@ to display a collection of resources in an HTML table.
 
   <tbody>
     <% resources.each do |resource| %>
-      <tr class="js-table-row"
-          tabindex="0"
-          <% if valid_action? :show, collection_presenter.resource_name %>
-            <%= %(role=link data-url=#{polymorphic_path([namespace, resource])}) %>
+      <tr class="js-table-row" tabindex="0" <% if valid_action? :show, collection_presenter.resource_name %> <%= %(role=link data-url=#{polymorphic_path([namespace, resource])}) %>
           <% end %>
           >
         <% collection_presenter.attributes_for(resource).each do |attribute| %>
@@ -98,38 +83,27 @@ to display a collection of resources in an HTML table.
         <% end %>
 
         <% if valid_action? :show, collection_presenter.resource_name %>
-          <td><%= link_to(
-            t("administrate.actions.show"),
-            [namespace, resource],
-            class: "button show",
-          ) %></td>
+          <td>
+            <%= link_to(t("administrate.actions.show"), [namespace, resource], class: "button show") %>
+          </td>
         <% end %>
 
         <% if valid_action? :edit, collection_presenter.resource_name %>
-          <td><%= link_to(
-            t("administrate.actions.edit"),
-            [:edit, namespace, resource],
-            class: "button edit",
-          ) %></td>
+          <td>
+            <%= link_to(t("administrate.actions.edit"),[:edit, namespace, resource],class: "button edit") %>
+          </td>
         <% end %>
 
         <% if valid_action? :destroy, collection_presenter.resource_name %>
-          <td><%= link_to(
-            t("administrate.actions.destroy"),
-            [namespace, resource],
-            class: "button delete",
-            method: :delete,
-            data: { confirm: t("administrate.actions.confirm") }
-          ) %></td>
+          <td>
+            <%= link_to( t("administrate.actions.destroy"), [namespace, resource], class: "button delete", method: :delete,data: { confirm: t("administrate.actions.confirm") }) %>
+          </td>
         <% end %>
+        
         <% if defined? collection_presenter.index_actions_linea != nil %> 
           <% collection_presenter.index_actions_linea.each do |key, value| %>
             <td>
-                <%= link_to(
-                  "#{t("administrate.actions.new")} #{t(value['model'])}",
-                  {:controller => 'admin/'+ value['link'],:action => "new", value["parameter_name"] => resource.id},
-                  {class: "button bt_green button_#{resource.obsolete}"},
-                ) if valid_action? :new %>  
+              <%= link_to( "#{t("administrate.actions.new")} #{t(value['model'])}", {:controller => 'admin/'+ value['link'],:action => "new", value["parameter_name"] => resource.id}, {class: "button new button_#{resource.obsolete}"}) if valid_action? :new %>  
             </td>
           <% end %>
         <% end %>

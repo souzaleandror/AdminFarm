@@ -1,5 +1,4 @@
 class Farm < ApplicationRecord
-  
   has_many :farm_lots
   has_many :animals
   

@@ -1,5 +1,6 @@
 module Admin
   class FarmLotsController < Admin::ApplicationController
+    include ApplicationHelper
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
@@ -9,6 +10,10 @@ module Admin
     #     page(params[:page]).
     #     per(10)
     # end
+    def show
+      @table1 = Farm.where(:id => requested_resource.farm)
+      super
+    end
     
     def new
       #super

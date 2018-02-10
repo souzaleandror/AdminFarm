@@ -1,0 +1,38 @@
+<section class="main-content__body">
+  <label class='f'>
+    <%= link_to t(table.model_name.singular.downcase), [namespace, table.klass] %> - 
+    <%= link_to( "#{t("administrate.actions.table.new")}", [:new, namespace, table.name.underscore]) if valid_action? :new %>
+  </label>
+  <table class="w3-table">
+    <tr>
+      <% show_table1('show', page.resource.class, table.klass).split(/,/).each do |field| %>
+        <% if field.to_s != "id" %>
+          <th><%= t("helpers.label.#{table.model_name.singular}.#{field}") %></th>
+        <% end %>
+      <% end %>
+      <th><%= t("administrate.actions.table.actions") %></th>
+    </tr>
+    <% table.each do |t_field| %>
+      <tr>
+        <% show_table1('show', page.resource.class, table.klass).split(/,/).each do |field| %>
+          <% if field.include? "_id" %>
+            <td><%= t_field.send(field.gsub("_id", "")).read_attribute(attribute_name(t_field.class, field)) %></td>
+          <% elsif field.include? "id" %>
+            <% next %>
+          <% else %>
+            <% if (t_field.send(field).class == TrueClass || t_field.send(field).class == FalseClass) %>
+              <td><%= t_get_boolean(t_field.send(field)) %></td>  
+            <% else %>
+              <td><%= t_field.send(field) %></td>
+            <% end %>
+          <% end %>
+        <% end %>
+        <td>
+          <%= link_to("V", [namespace, t_field], class: "button show") %>
+          <%= link_to("E", [:edit, namespace, t_field], class: "button edit") %>
+          <%= link_to("D", [namespace, t_field], class: "button delete", method: :delete, data: { confirm: t("administrate.actions.confirm") }) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</section>

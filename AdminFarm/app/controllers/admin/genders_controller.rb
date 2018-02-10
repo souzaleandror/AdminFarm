@@ -13,10 +13,9 @@ module Admin
     # end
     
     def show
-       @table1 = AnimalStage.where(:gender_id => params[:id]).select(show_table1('show', Gender, AnimalStage)).limit(10)
-       @table2 = AnimalState.where(:gender_id => params[:id]).select(show_table1('show', Gender, AnimalState)).limit(10)
-       @table3 = Animal.where(:gender_id => params[:id]).select(show_table1('show', Gender, Animal)).limit(10)
-       #@table4 = ApplicationMedicine.where(:animal_id => params[:id]).select(show_table1('show', Animal, ApplicationMedicine)).limit(10).descDateMedicine
+      @table1 = AnimalStage.where(:gender_id => params[:id]).select(show_table1('show', Gender, AnimalStage)).limit(10)
+      @table2 = AnimalState.where(:gender_id => params[:id]).select(show_table1('show', Gender, AnimalState)).limit(10)
+      @table3 = Animal.where(:gender_id => params[:id]).select(show_table1('show', Gender, Animal)).limit(10)
       super
     end
 

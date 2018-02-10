@@ -22,37 +22,18 @@ as well as a link to its edit page.
   <h1 class="main-content__page-title">
     <%= content_for(:title) %>
   </h1>
- 
   <div>
-    <%= link_to(
-      "#{t("administrate.actions.new")} #{t(page.resource_name.titleize.downcase)}",
-      [:new, namespace, page.resource_path],
-      class: "button bt_green",
-    ) if valid_action? :new %>
-    <%= link_to(
-      "#{t("administrate.actions.edit")} #{page.page_title}",
-      [:edit, namespace, page.resource],
-      class: "button bt_yellow",
-    ) if valid_action? :edit %>
-    <%= link_to(
-        "#{t("administrate.actions.destroy")} #{page.page_title}",
-        [namespace, page.resource],
-        class: "button bt_red",
-        method: :delete,
-        data: { confirm: t("administrate.actions.confirm") }
-      ) %>
-      <%= link_to t("administrate.actions.list"), [namespace, page.resource.class], class: "button"  %>
+    <%= link_to( "#{t("administrate.actions.new")} #{t(page.resource_name.titleize.downcase)}", [:new, namespace, page.resource_path], class: "button new") if valid_action? :new %>
+    <%= link_to( "#{t("administrate.actions.edit")} #{page.page_title}", [:edit, namespace, page.resource], class: "button edit") if valid_action? :edit %>
+    <%= link_to( "#{t("administrate.actions.destroy")} #{page.page_title}", [namespace, page.resource], class: "button delete", method: :delete, data: { confirm: t("administrate.actions.confirm") }) %>
+    <%= link_to t("administrate.actions.list"), [namespace, page.resource.class], class: "button"  %>
   </div>
 </header>
 
 <% if defined? page.show_page_actions != nil %>
   <%= t("administrate.filter.actions") %>:
   <% page.show_page_actions.each do |key, value| %>
-    <%= link_to(
-        "#{t("administrate.actions.new")} #{t(value['model'])}",
-        {:controller => 'admin/'+ value['link'],:action => "new", value['parameter_name'] => page.attributes[value['position_field']]},
-        {class: "button bt_green button_#{page.attributes[value['position_field']]}"},
-      ) if valid_action? :new %>
+    <%= link_to( "#{t("administrate.actions.new")} #{t(value['model'])}", {:controller => 'admin/'+ value['link'],:action => "new", value['parameter_name'] => page.attributes[value['position_field']]}, {class: "button new button_#{page.attributes[value['position_field']]}"}, ) if valid_action? :new %>
   <% end %>
 <% end %>
 
@@ -60,10 +41,7 @@ as well as a link to its edit page.
   <dl>
     <% page.attributes.each do |attribute| %>
       <dt class="attribute-label" id="<%= attribute.name %>">
-      <%= t(
-        "helpers.label.#{resource_name}.#{attribute.name}",
-        default: attribute.name.titleize,
-      ) %>
+      <%= t( "helpers.label.#{resource_name}.#{attribute.name}", default: attribute.name.titleize) %>
       </dt>
       <dd class="attribute-data attribute-data--<%=attribute.html_class%>">
         <%#= render_field attribute %>
@@ -73,114 +51,30 @@ as well as a link to its edit page.
   </dl>
 </section>
 
+<% if (defined? @table0) && (not @table0.empty?) %>
+  <%= render("show_tables", table: @table0, page: page) %>
+<% end %>
+
 <% if (defined? @table1) && (not @table1.empty?) %>
-  <section class="main-content__body">
-    <label class='f'><%= t(@table1.klass.to_s.downcase) %></label>
-    <table class="w3-table">
-      <tr>
-        <% show_table1('show', page.resource.class, @table1.klass).split(/,/).each do |field| %>
-          <th><%= t("helpers.label.#{@table1.klass.to_s.downcase}.#{field}") %></th>
-        <% end %>
-      </tr>
-      <% @table1.each do |table| %>
-        <tr>
-          <% show_table1('show', page.resource.class, @table1.klass).split(/,/).each do |field| %>
-            <% if field.include? "_id" %>
-              <td><%= table.send(field.gsub("_id", "")).read_attribute(attribute_name(table.class, field)) %></td>
-            <% else %>
-              <% if (table.send(field).class == TrueClass || table.send(field).class == FalseClass) %>
-                <td><%= t_get_boolean(table.send(field)) %></td>  
-              <% else %>
-                <td><%= table.send(field)  %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
-  </section>
+  <%= render("show_tables", table: @table1, page: page) %>
 <% end %>
 
 <% if (defined? @table2) && (not @table2.empty?) %>
-  <section class="main-content__body">
-    <label class='f'><%= t(@table2.klass.to_s.downcase) %></label>
-    <table class="w3-table">
-      <tr>
-        <% show_table1('show', page.resource.class, @table2.klass).split(/,/).each do |field| %>
-          <th><%= t("helpers.label.#{@table2.klass.to_s.downcase}.#{field}") %></th>
-        <% end %>
-      </tr>
-      <% @table2.each do |table| %>
-        <tr>
-          <% show_table1('show', page.resource.class, @table2.klass).split(/,/).each do |field| %>
-            <% if field.include? "_id" %>
-              <td><%= table.send(field.gsub("_id", "")).read_attribute(attribute_name(table.class, field)) %></td>
-            <% else %>
-              <% if (table.send(field).class == TrueClass || table.send(field).class == FalseClass) %>
-                <td><%= t_get_boolean(table.send(field)) %></td>  
-              <% else %>
-                <td><%= table.send(field)  %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
-  </section>
+  <%= render("show_tables", table: @table2, page: page) %>
 <% end %>
 
 <% if (defined? @table3) && (not @table3.empty?) %>
-  <section class="main-content__body">
-    <label class='f'><%= t(@table3.klass.to_s.downcase) %></label>
-    <table class="w3-table">
-      <tr>
-        <% show_table1('show', page.resource.class, @table3.klass).split(/,/).each do |field| %>
-          <th><%= t("helpers.label.#{@table3.klass.to_s.downcase}.#{field}") %></th>
-        <% end %>
-      </tr>
-      <% @table3.each do |table| %>
-        <tr>
-          <% show_table1('show', page.resource.class, @table3.klass).split(/,/).each do |field| %>
-            <% if field.include? "_id" %>
-              <td><%= table.send(field.gsub("_id", "")).read_attribute(attribute_name(table.class, field)) %></td>
-            <% else %>
-              <% if (table.send(field).class == TrueClass || table.send(field).class == FalseClass) %>
-                <td><%= t_get_boolean(table.send(field)) %></td>  
-              <% else %>
-                <td><%= table.send(field)  %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
-  </section>
+  <%= render("show_tables", table: @table3, page: page) %>
 <% end %>
 
 <% if (defined? @table4) && (not @table4.empty?) %>
-  <section class="main-content__body">
-    <label class='f'><%= t(@table4.klass.to_s.downcase) %></label>
-    <table class="w3-table">
-      <tr>
-        <% show_table1('show', page.resource.class, @table4.klass).split(/,/).each do |field| %>
-          <th><%= t("helpers.label.#{@table4.klass.to_s.downcase}.#{field}") %></th>
-        <% end %>
-      </tr>
-      <% @table4.each do |table| %>
-        <tr>
-          <% show_table1('show', page.resource.class, @table4.klass).split(/,/).each do |field| %>
-            <% if field.include? "_id" %>
-              <td><%= table.send(field.gsub("_id", "")).read_attribute(attribute_name(table.class, field)) %></td>
-            <% else %>
-              <% if (table.send(field).class == TrueClass || table.send(field).class == FalseClass) %>
-                <td><%= t_get_boolean(table.send(field)) %></td>  
-              <% else %>
-                <td><%= table.send(field)  %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
-  </section>
+  <%= render("show_tables", table: @table4, page: page) %>
+<% end %>
+
+<% if (defined? @table5) && (not @table5.empty?) %>
+  <%= render("show_tables", table: @table5, page: page) %>
+<% end %>
+
+<% if (defined? @table6) && (not @table6.empty?) %>
+  <%= render("show_tables", table: @table6, page: page) %>
 <% end %>
