@@ -1,6 +1,5 @@
 module Admin
   class AnimalStatesController < Admin::ApplicationController
-    include ApplicationHelper
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #

@@ -1,6 +1,6 @@
 class Vaccine < ApplicationRecord
   
-  has_many :vaccinations
+  has_many :vaccinations, dependent: :restrict_with_exception
   
   belongs_to :animal_category
   

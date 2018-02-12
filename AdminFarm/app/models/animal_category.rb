@@ -1,10 +1,10 @@
 class AnimalCategory < ApplicationRecord
-  has_many :vaccines
-  has_many :medicines
-  has_many :breed_animals
-  has_many :animal_stages
-  has_many :animal_states
-  has_many :animals
+  has_many :vaccines, dependent: :restrict_with_exception
+  has_many :medicines, dependent: :restrict_with_exception
+  has_many :breed_animals, dependent: :restrict_with_exception
+  has_many :animal_stages, dependent: :restrict_with_exception
+  has_many :animal_states, dependent: :restrict_with_exception
+  has_many :animals, dependent: :restrict_with_exception
   
   #default_scope { order('nome ASC') }
   

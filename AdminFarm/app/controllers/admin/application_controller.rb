@@ -6,12 +6,19 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    #include ApplicationHelper
+    include ApplicationHelper
     
     before_action :authenticate_admin
 
     def authenticate_admin
       # TODO Add authentication logic here.
+    end
+    
+    rescue_from ActiveRecord::DeleteRestrictionError do |exception|
+      #redirect_to(redirect_back(fallback_location: root_path), :alert => exception.message)
+      #redirect_back(fallback_location: root_path, :alert => exception.message )
+      redirect_back(fallback_location: root_path, :alert => t("cannot.delete") )
+      #redirect_back(fallback_location: root_path, :alert => t("cannot.delete", exception) )
     end
     
     # def show

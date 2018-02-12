@@ -72,6 +72,9 @@ gem "administrate", :git => "https://github.com/souzaleandror/administrate.git"
 # Plugin that adds search capabilities to belongs_to associations for Administrate
 gem 'administrate-field-belongs_to_search'
 
+# A plugin to pick a date in Administrate, with the help of Flatpickr.
+# gem 'administrate-field-date_picker', '~> 0.0.5'
+
 # FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord
 gem 'friendly_id'
 

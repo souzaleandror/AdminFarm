@@ -1,7 +1,7 @@
 class Gender < ApplicationRecord
-  has_many :animal_stages
-  has_many :animal_states
-  has_many :animals 
+  has_many :animal_stages, dependent: :restrict_with_exception
+  has_many :animal_states, dependent: :restrict_with_exception
+  has_many :animals, dependent: :restrict_with_exception
   
   validates :name, presence: true
   validates :name, uniqueness: true

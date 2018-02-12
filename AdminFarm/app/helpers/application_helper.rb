@@ -34,6 +34,12 @@ module ApplicationHelper
         'id,animal_category_id,name,obsolete'
     elsif (action = 'show' && page == AnimalCategory && table == Vaccine)
         'id,animal_category_id,name,obsolete'
+    #MEDICINES
+    elsif (action = 'show' && page == Medicine && table == ApplicationMedicine)
+        'id,animal_id,medicine_id,date_medicine'
+    #VACCINEaccin
+    elsif (action = 'show' && page == Vaccine && table == Vaccination)
+        'id,animal_id,vaccine_id,date_vaccine'
     #ANIMAL
     elsif (action = 'show' && page == Animal && table == AnimalDeath)
         'id,death_type_id,destiny_id,date_death,final_weigh'
@@ -80,6 +86,8 @@ module ApplicationHelper
     elsif model == ApplicationMedicine
       if (['medicine_id'].include? field_name) 
         :name
+      elsif (['animal_id'].include? field_name)
+        :number_earring
       end
     elsif model == BreedAnimal
       if (['animal_category_id'].include? field_name) 
@@ -92,6 +100,12 @@ module ApplicationHelper
     elsif model == Vaccine
       if (['animal_category_id'].include? field_name) 
         :name
+      end
+    elsif model == Vaccination
+      if (['vaccine_id'].include? field_name) 
+        :name
+      elsif (['animal_id'].include? field_name)
+        :number_earring
       end
     else
       nil

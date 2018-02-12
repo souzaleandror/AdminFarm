@@ -1,10 +1,9 @@
 class Animal < ApplicationRecord
-  
-  has_many :weighings
-  has_many :vaccinations
-  has_many :application_medicines
-  has_many :animal_deaths
-  has_many :animal_sales
+  has_many :weighings, dependent: :restrict_with_exception
+  has_many :vaccinations, dependent: :restrict_with_exception
+  has_many :application_medicines, dependent: :restrict_with_exception
+  has_many :animal_deaths, dependent: :restrict_with_exception
+  has_many :animal_sales, dependent: :restrict_with_exception
   
   belongs_to :animal_category
   belongs_to :breed_animal

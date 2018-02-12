@@ -1,6 +1,6 @@
 class Medicine < ApplicationRecord
   
-  has_many :application_medicines
+  has_many :application_medicines, dependent: :restrict_with_exception
   
   belongs_to :animal_category
   

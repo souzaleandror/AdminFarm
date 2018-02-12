@@ -1,6 +1,11 @@
 require "administrate/base_dashboard"
 
 class VaccineDashboard < Administrate::BaseDashboard
+  COLLECTION_FILTERS = {
+    obs: ->(resources) { resources.where(obsolete: true) },
+    nobs: ->(resources) { resources.where(obsolete: false) }
+  }.freeze
+   
   FILTER_NAMES = {
     'nobs:' => 'no_obsolete',
     'obs:' => 'obsolete',

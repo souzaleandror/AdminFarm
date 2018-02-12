@@ -1,7 +1,7 @@
 class AnimalStage < ApplicationRecord
   
-  has_many :animals
-  has_many :weighings
+  has_many :animals, dependent: :restrict_with_exception
+  has_many :weighings, dependent: :restrict_with_exception
   
   belongs_to :animal_category
   belongs_to :gender

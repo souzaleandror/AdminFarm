@@ -1,7 +1,8 @@
 <section class="main-content__body">
   <label class='f'>
     <%= link_to t(table.model_name.singular.downcase), [namespace, table.klass] %> - 
-    <%= link_to( "#{t("administrate.actions.table.new")}", [:new, namespace, table.name.underscore]) if valid_action? :new %>
+    <%= link_to( "#{t("administrate.actions.table.new")}", [:new, namespace, table.name.underscore]) if valid_action? :new %> - 
+    <%= link_to( "#{t("administrate.actions.see_more")}", [:new, namespace, table.name.underscore]) if valid_action? :new %>
   </label>
   <table class="w3-table">
     <tr>
@@ -28,9 +29,9 @@
           <% end %>
         <% end %>
         <td>
-          <%= link_to("V", [namespace, t_field], class: "button show") %>
-          <%= link_to("E", [:edit, namespace, t_field], class: "button edit") %>
-          <%= link_to("D", [namespace, t_field], class: "button delete", method: :delete, data: { confirm: t("administrate.actions.confirm") }) %>
+          <%= link_to("", [namespace, t_field], class: "button show icon_show") %>
+          <%= link_to("", [:edit, namespace, t_field], class: "button edit icon_edit") %>
+          <%= link_to("", [namespace, t_field], class: "button delete icon_delete", method: :delete, data: { confirm: t("administrate.actions.confirm") }) %>
         </td>
       </tr>
     <% end %>

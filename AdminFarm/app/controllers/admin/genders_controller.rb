@@ -1,7 +1,5 @@
 module Admin
   class GendersController < Admin::ApplicationController
-    include ApplicationHelper
-    
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
@@ -13,9 +11,9 @@ module Admin
     # end
     
     def show
-      @table1 = AnimalStage.where(:gender_id => params[:id]).select(show_table1('show', Gender, AnimalStage)).limit(10)
-      @table2 = AnimalState.where(:gender_id => params[:id]).select(show_table1('show', Gender, AnimalState)).limit(10)
-      @table3 = Animal.where(:gender_id => params[:id]).select(show_table1('show', Gender, Animal)).limit(10)
+      @table1 = AnimalStage.where(:gender_id => requested_resource).select(show_table1('show', Gender, AnimalStage)).limit(10)
+      @table2 = AnimalState.where(:gender_id => requested_resource).select(show_table1('show', Gender, AnimalState)).limit(10)
+      @table3 = Animal.where(:gender_id => requested_resource).select(show_table1('show', Gender, Animal)).limit(10)
       super
     end
 

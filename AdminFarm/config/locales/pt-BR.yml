@@ -1,5 +1,8 @@
 --- 
 pt-BR: 
+  cannot:
+    delete_: 'Não foi possivel deletar o record porque tem dependencia: %{model}'
+    delete: 'Não foi possivel deletar o record porque tem dependencia'
   contacts:
     new:
       title: "Contato"

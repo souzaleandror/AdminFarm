@@ -1,6 +1,6 @@
 class Destiny < ApplicationRecord
-  has_many :animal_deaths
-  has_many :animal_sales
+  has_many :animal_deaths, dependent: :restrict_with_exception
+  has_many :animal_sales, dependent: :restrict_with_exception
   
   #validates :name, :description, :obsolete, presence: true
   validates :name, presence: true

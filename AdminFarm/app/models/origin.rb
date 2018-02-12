@@ -1,5 +1,5 @@
 class Origin < ApplicationRecord
-  has_many :animals
+  has_many :animals, dependent: :restrict_with_exception
   
   validates :name, presence: true
   

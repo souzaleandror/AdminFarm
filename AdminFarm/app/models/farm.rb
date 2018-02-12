@@ -1,6 +1,6 @@
 class Farm < ApplicationRecord
-  has_many :farm_lots
-  has_many :animals
+  has_many :farm_lots, dependent: :restrict_with_exception
+  has_many :animals, dependent: :restrict_with_exception
   
   #validates :name, :address hectare_quantity description, :obsolete, presence: true
   validates :name, :address, :hectare_quantity, presence: true

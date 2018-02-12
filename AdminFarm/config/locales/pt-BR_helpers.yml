@@ -128,13 +128,17 @@ pt-BR:
         description: "Descrição" 
         observation: "Observaçao"
       vaccination:
-        animal: "Animal" 
+        animal: "Animal"
+        animal_id: "Animal"
         vaccine: "Vacina" 
+        vaccine_id: "Vacina" 
         date_vaccine: "Data Vacina"
         observation: "Observaçao"
       application_medicine:
         animal: "Animal" 
+        animal_id: "Animal" 
         medicine: "Remedio" 
+        medicine_id: "Remedio" 
         date_medicine: "Data da Aplicação"
         observation: "Observação"
       death_type:

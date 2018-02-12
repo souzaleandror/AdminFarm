@@ -37,6 +37,7 @@ pt-BR:
       show: "Visualizar"
       back: "Voltar"
       list: "Lista"
+      see_more: "Veja Mais"
       table:
         new: "Novo"
         actions: "Ações"

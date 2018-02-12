@@ -1,6 +1,5 @@
 module Admin
   class OriginsController < Admin::ApplicationController
-    include ApplicationHelper
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
@@ -12,7 +11,7 @@ module Admin
     # end
     
     def show
-      @table1 = Animal.where(:gender_id => params[:id]).select(show_table1('show', Origin, Animal)).limit(10)
+      @table1 = Animal.where(:gender_id => requested_resource).select(show_table1('show', Origin, Animal)).limit(10)
       super
     end
 
