@@ -2,7 +2,7 @@ class BreedAnimal < ApplicationRecord
   belongs_to :animal_category
   
   #validates animal_category :name, :description, :obsolete, presence: true
-  validates :animal_category, :name, presence: true
+  validates :animal_category_id, :name, presence: true
     
   #default_scope { order('name ASC') }
   

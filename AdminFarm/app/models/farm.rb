@@ -4,6 +4,7 @@ class Farm < ApplicationRecord
   
   #validates :name, :address hectare_quantity description, :obsolete, presence: true
   validates :name, :address, :hectare_quantity, presence: true
+  validates :name, uniqueness: true
   
   # default_scope { order('nome ASC') }
   

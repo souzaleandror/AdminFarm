@@ -2,6 +2,7 @@ class Origin < ApplicationRecord
   has_many :animals, dependent: :restrict_with_exception
   
   validates :name, presence: true
+  validates :name, uniqueness: true
   
   scope :ascCreated_at,->{order(:created_at => "ASC")}
   scope :descCreated_at,->{order(:created_at => "DESC")}

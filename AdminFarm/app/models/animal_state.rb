@@ -7,8 +7,8 @@ class AnimalState < ApplicationRecord
   belongs_to :gender
   
   #validates animal_state animal_category gender :name, :min:decimal max:decimal description, :obsolete, presence: true
-  validates :animal_category, :gender, :name, :weigh_min, :weigh_max, presence: true
-
+  validates :animal_category_id, :gender_id, :name, :weigh_min, :weigh_max, presence: true
+  
   #default_scope { order('name ASC') }
   
   scope :ascCreated_at,->{order(:created_at => "ASC")}

@@ -3,6 +3,7 @@ class DeathType < ApplicationRecord
   
   #validates :name, :description, :obsolete, presence: true
   validates :name, presence: true
+  validates :name, uniqueness: true
   # default_scope { order('nome ASC') }
   
   scope :ascCreated_at,->{order(:created_at => "ASC")}

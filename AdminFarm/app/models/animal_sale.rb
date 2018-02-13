@@ -3,8 +3,9 @@ class AnimalSale < ApplicationRecord
   belongs_to :sale_type
   belongs_to :destiny
   
-  validates :animal, :sale_type, :destiny, :date_sale, :purchase_value, :sales_value, :final_weigh, presence: true
+  validates :animal_id, :sale_type_id, :destiny_id, :date_sale, :purchase_value, :sales_value, :final_weigh, presence: true
   #validates animal sale_type destiny date_sale observation purchase_value sales_value final_weigh, presence: true
+  validates :animal_id, uniqueness: true
   
   scope :ascCreated_at,->{order(:created_at => "ASC")}
   scope :descCreated_at,->{order(:created_at => "DESC")}

@@ -3,7 +3,7 @@ class ApplicationMedicine < ApplicationRecord
   belongs_to :animal
   belongs_to :medicine
   
-  validates :animal, :medicine, :date_medicine, presence: true
+  validates :animal_id, :medicine_id, :date_medicine, presence: true
   
   scope :ascCreated_at,->{order(:created_at => "ASC")}
   scope :descCreated_at,->{order(:created_at => "DESC")}

@@ -4,6 +4,7 @@ class Destiny < ApplicationRecord
   
   #validates :name, :description, :obsolete, presence: true
   validates :name, presence: true
+  validates :name, uniqueness: true
   
   scope :ascCreated_at,->{order(:created_at => "ASC")}
   scope :descCreated_at,->{order(:created_at => "DESC")}

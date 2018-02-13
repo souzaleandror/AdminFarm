@@ -14,9 +14,9 @@ class Animal < ApplicationRecord
   belongs_to :farm
   
   #validates animal_category breed_animal gender animal_stage animal_state origin farm number_earring date_register birth_date earring_mother_number initial_weigh description, :obsolete, presence: true
-  validates :animal_category, :breed_animal, :gender, :animal_stage, :animal_state, :origin, :farm, presence: true
+  validates :animal_category_id, :breed_animal_id, :gender_id, :animal_stage_id, :animal_state_id, :origin_id, :farm_id, presence: true
   validates :number_earring, :date_register, :birth_date, :earring_mother_number, :initial_weigh, presence: true
-  
+  validates :number_earring, uniqueness: true
   # default_scope { order(:numeroBrinco => "ASC")}
 
   scope :ascCreated_at,->{order(:created_at => "ASC")}

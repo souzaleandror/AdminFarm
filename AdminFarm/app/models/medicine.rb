@@ -4,5 +4,5 @@ class Medicine < ApplicationRecord
   
   belongs_to :animal_category
   
-  validates :animal_category, :name,presence: true
+  validates :animal_category_id, :name,presence: true
 end

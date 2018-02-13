@@ -9,6 +9,7 @@ class AnimalCategory < ApplicationRecord
   #default_scope { order('nome ASC') }
   
   validates :name, presence: true
+  validates :name, uniqueness: true
   #validates :name, :description, :obsolete, presence: true
   
   scope :ascCreated_at,->{order(:created_at => "ASC")}

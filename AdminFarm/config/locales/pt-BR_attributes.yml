@@ -89,7 +89,3 @@ pt-BR:
         initial_weigh: "Pesagem Inicial"
         description: "Descrição"
         obsolete: "Obsoleto"
-      animal_stage:
-        animal_category: "Categoria Animal" 
-        animal_category_id: "Categoria Animal" 
-        name: "Nome"

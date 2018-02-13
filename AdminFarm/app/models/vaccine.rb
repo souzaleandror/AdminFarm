@@ -4,6 +4,7 @@ class Vaccine < ApplicationRecord
   
   belongs_to :animal_category
   
-  validates :animal_category, :name,presence: true
+  validates :animal_category_id, :name,presence: true
+  #validates :name, uniqueness: true
 
 end

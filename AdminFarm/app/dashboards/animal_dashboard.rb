@@ -57,7 +57,7 @@ class AnimalDashboard < Administrate::BaseDashboard
     earring_mother_number: Field::String,
     initial_weigh: Field::String.with_options(searchable: false),
     description: Field::String,
-    obsolete: Field::String.with_options(searchable: false),
+    obsolete: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze

@@ -7,7 +7,7 @@ class AnimalStage < ApplicationRecord
   belongs_to :gender
   
   #validates animal_category gender :name, :min_month max_month description, :obsolete, presence: true  
-  validates :animal_category, :gender, :name, :min_month, :max_month, presence: true
+  validates :animal_category_id, :gender_id, :name, :min_month, :max_month, presence: true
 
   #default_scope { order('nome ASC') }
   
